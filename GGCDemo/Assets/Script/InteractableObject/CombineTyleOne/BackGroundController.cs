@@ -9,7 +9,7 @@ public class BackGroundController : MonoBehaviour
     public bool Active;
     void Start()
     {
-       
+
         objectList = GetComponentsInChildren<BackGroundObject>();
         Deactivate();
     }
@@ -22,12 +22,14 @@ public class BackGroundController : MonoBehaviour
     }
     public void Activate() {
         Active = true;
+        objectList = GetComponentsInChildren<BackGroundObject>();
         foreach (BackGroundObject obj in objectList) {
             obj.activateObject();
         }
     }
     public void Deactivate() {
         Active = false;
+        objectList = GetComponentsInChildren<BackGroundObject>();
         foreach (BackGroundObject obj in objectList) {
             Debug.Log("deactivate");
             obj.deactivateObject();

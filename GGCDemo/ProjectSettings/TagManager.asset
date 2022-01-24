@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CombineTypeOne
   - CombineTypeTwo
+  - CombineTypeThree
   layers:
   - Default
   - TransparentFX
