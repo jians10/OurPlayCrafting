@@ -1514,7 +1514,6 @@ GameObject:
   - component: {fileID: 1687033260}
   - component: {fileID: 1687033263}
   - component: {fileID: 1687033262}
-  - component: {fileID: 1687033264}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -1559,11 +1558,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1379661929
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9280661, b: 0.69166076, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1582,7 +1581,7 @@ Transform:
   m_GameObject: {fileID: 1687033259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 728692857}
   m_Father: {fileID: 0}
@@ -1617,37 +1616,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sp: {fileID: 1687033260}
-  alpha: 0.2
-  Player:
-    serializedVersion: 2
-    m_Bits: 128
-  PlayerInMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  hiddenground:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!50 &1687033264
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687033259}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  deactivealpha: 1
+  activealpha: 0.1
+  activated: 0
+  activateTime: 1
+  deactivateTime: 1
+  originalscale: 0.25
+  activatescale: 3
 --- !u!1 &1783995880
 GameObject:
   m_ObjectHideFlags: 0

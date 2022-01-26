@@ -7,25 +7,93 @@ public class MyMaskController: MonoBehaviour
 {
     // Start is called before the first frame update
     public SpriteRenderer sp;
-    public float alpha;
-    public LayerMask Player;
-    public LayerMask PlayerInMask;
-    public LayerMask hiddenground;
+    public float deactivealpha=1f;
+    public float activealpha=0.1f;
+    //public LayerMask Player;
+    //public LayerMask PlayerInMask;
+    //public LayerMask hiddenground;
+    public bool activated=false;
+    public float activateTime = 1f;
+    public float deactivateTime = 1f;
+    public float originalscale = 0.25f;
+    public float activatescale = 3f;
+    private Collider2D mycollider;
     //public LayerMask hidden;
     void Start()
     {
+        mycollider = GetComponent<Collider2D>();
         sp = GetComponent<SpriteRenderer>();
-        showDetector();  
+        hideDetector();  
     }
 
-    void showDetector() {
-        sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, alpha);
+    void hideDetector() {
+        sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, deactivealpha);
+        mycollider.enabled = false;
+    }
+    IEnumerator graduallyscale(float originalscale, float activatescale, float time, float originalalpha, float activealpha, bool active) {
+
+        float currentTime = 0.0f;
+
+        do
+        {
+            currentTime += Time.deltaTime;
+            originalalpha = Mathf.Lerp(originalalpha, activealpha, currentTime / time);
+            originalscale = originalscale + (activatescale - originalscale) * currentTime / time;
+            gameObject.transform.localScale = new Vector3(originalscale, originalscale, 1);
+            sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, originalalpha);
+
+            yield return new WaitForEndOfFrame();
+        } while (time >= currentTime);
     }
 
+    //IEnumerator ScaleOverTime(float time)
+    //{
+    //    Vector3 originalScale = transform.localScale;
+    //    Vector3 destinationScale = new Vector3(2.0f, 2.0f, 2.0f);
+
+    //    float currentTime = 0.0f;
+
+    //    do
+    //    {
+    //        transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
+    //        currentTime += Time.deltaTime;
+    //        yield return null;
+    //    } while (currentTime <= time);
+
+    //    Destroy(gameObject);
+    //}
+
+
+    void deactive() {
+        activated = false;
+        mycollider.enabled = false;
+        StartCoroutine(graduallyscale(activatescale, originalscale, 2,activealpha,deactivealpha, false));
+        
+    }
+
+
+    void active() {
+        activated = true;
+        mycollider.enabled = true;
+        StartCoroutine(graduallyscale(originalscale, activatescale,2,deactivealpha, activealpha,true));
+        //activated = true;
+        //var newScale : float = Mathf.Lerp(0.5, 3, Time.deltaTime / 10);
+        //transform.localScale = Vector3(newScale, newScale, 1);
+    }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.C)){
+            if (!activated)
+            {
+                active();
+            }
+            else {
+                deactive();
+            }
+        }
         //Debug.Log("I am here");
         //Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 mousePositionOnScreen = Input.mousePosition;
