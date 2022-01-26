@@ -17,7 +17,7 @@ public class DestroyBack : CombineBack
 
     }
 
-    virtual public void Combine(GameObject target)
+    override public void Combine(GameObject target)
     {
 
         Debug.Log("DestroyAll");

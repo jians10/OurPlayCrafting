@@ -17,7 +17,7 @@ public class NeoCombineBack : CombineBack
         
     }
 
-    virtual public void Combine(GameObject target)
+    override public void Combine(GameObject target)
     {
         Debug.Log("Combine is triggering");
         //combine = Instantiate(combineHelper, transform.position, Quaternion.identity);

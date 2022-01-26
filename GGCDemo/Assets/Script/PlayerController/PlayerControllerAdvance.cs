@@ -20,6 +20,7 @@ public class PlayerControllerAdvance : MonoBehaviour
     private Rigidbody2D rb;
     //public Animator animator;
     public LayerMask groundLayer;
+    public LayerMask hidengroundLayer;
     public GameObject characterHolder;
    
     [Header("Physics")]
@@ -40,7 +41,10 @@ public class PlayerControllerAdvance : MonoBehaviour
     [Header("ParticleSystem")]
     public ParticleSystem dust;
 
-
+    [Header("background Interact")]
+    public LayerMask player;
+    public LayerMask playerinMask;
+    public bool inMask;
     void Start()
     {
         extraJumps = extraJumpVal;
@@ -55,8 +59,16 @@ public class PlayerControllerAdvance : MonoBehaviour
         RaycastHit2D hitRight;
         RaycastHit2D hitLeft;
         //onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
-        hitLeft = Physics2D.Raycast(transform.position + colliderOffset,Vector2.down, groundLength,groundLayer);
-        hitRight = Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+        if (inMask)
+        {
+            hitLeft = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer | hidengroundLayer);
+            hitRight = Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer | hidengroundLayer);
+        }
+        else
+        {
+            hitLeft = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer);
+            hitRight = Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+        }
         //if (hitLeft)
         //{
         //    if (hitLeft.transform.gameObject.GetComponent<PlatformMovement>())
@@ -212,4 +224,42 @@ public class PlayerControllerAdvance : MonoBehaviour
         //Debug.Log("play dust");
 
     }
+
+    public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector2 knockbackDir) {
+
+        float timer = 0;
+        while (knockDur>timer) {
+            timer += Time.deltaTime;
+            rb.AddForce(new Vector2(knockbackDir.x * -1, knockbackDir.y * knockbackPwr),ForceMode2D.Impulse);     
+        }
+        yield return 0;
+    }
+
+    public void getInMask() {
+
+        if (DetectCollision())
+        {
+            gameObject.layer = LayerMask.NameToLayer("playerInMask");
+            inMask = true;
+        }
+    
+    }
+    public void getOutMask() {
+        gameObject.layer = LayerMask.NameToLayer("player");
+        inMask = false;
+    }
+
+    public bool DetectCollision() {
+        Collider2D[] list = Physics2D.OverlapBoxAll(transform.position, new Vector3(transform.localScale.x-0.1f, transform.localScale.y-0.1f, transform.localScale.z-0.1f), 0);
+        foreach (Collider2D c in list)
+        {
+            if (c.transform.gameObject.layer==LayerMask.NameToLayer("hiddenground"))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    
 }
