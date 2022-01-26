@@ -124,6 +124,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   inMask: 0
+  sp: {fileID: 78869290115586796}
 --- !u!1 &78869289908436757
 GameObject:
   m_ObjectHideFlags: 0

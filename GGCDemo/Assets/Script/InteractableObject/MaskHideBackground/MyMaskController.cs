@@ -39,7 +39,7 @@ public class MyMaskController: MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControllerAdvance>()) {
             collision.gameObject.GetComponent<PlayerControllerAdvance>().getInMask();
-            Debug.Log("Get a Player");
+            //Debug.Log("Get a Player");
 
         }
         
@@ -48,7 +48,7 @@ public class MyMaskController: MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControllerAdvance>()) {
             collision.gameObject.GetComponent<PlayerControllerAdvance>().getOutMask();
-            Debug.Log("Player get out");
+            //Debug.Log("Player get out");
         }
     }
 }
