@@ -6,11 +6,13 @@ public class FallingObstacle : MonoBehaviour
 {
     Rigidbody2D rb;
     public int damageAmount = 1;
+    private PlayerHealth player;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +27,7 @@ public class FallingObstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth.Damage(damageAmount);
+            player.Damage(damageAmount);
         }
 
         Destroy(gameObject, .2f);

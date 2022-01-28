@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private CheckpointSystem cs;
+    //private CheckpointSystem cs;
 
     void Start()
     {
-        cs = GameObject.FindGameObjectWithTag("CS").GetComponent<CheckpointSystem>();
+        //cs = GameObject.FindGameObjectWithTag("CS").GetComponent<CheckpointSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,7 +16,8 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Debug.Log(transform.position);
-            cs.lastCheckPointPos = transform.position;
+            //lastCheckPointPos = transform.position;
+            CheckpointSystem.instance.lastCheckPointPos = transform.position;
         }
     }
 }

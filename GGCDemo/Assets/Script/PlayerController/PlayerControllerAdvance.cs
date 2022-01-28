@@ -228,16 +228,6 @@ public class PlayerControllerAdvance : MonoBehaviour
 
     }
 
-    public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector2 knockbackDir) {
-
-        float timer = 0;
-        while (knockDur>timer) {
-            timer += Time.deltaTime;
-            rb.AddForce(new Vector2(knockbackDir.x * -1, knockbackDir.y * knockbackPwr),ForceMode2D.Impulse);     
-        }
-        yield return 0;
-    }
-
     public void getInMask() {
 
         if (DetectCollision())

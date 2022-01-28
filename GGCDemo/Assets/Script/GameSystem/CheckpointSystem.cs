@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckpointSystem : MonoBehaviour
 {
-    private static CheckpointSystem instance;
+    public static CheckpointSystem instance;
 
     public Vector2 lastCheckPointPos;
 
@@ -20,5 +20,9 @@ public class CheckpointSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public Vector2 getCheckPointLocation() {
+        return lastCheckPointPos;
     }
 }

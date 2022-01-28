@@ -15,10 +15,5 @@ public class PlayerPos : MonoBehaviour
 
     void Update()
     {
-        //debug
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //}
     }
 }

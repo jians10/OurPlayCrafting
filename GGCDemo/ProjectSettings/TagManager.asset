@@ -8,6 +8,7 @@ TagManager:
   - CombineTypeTwo
   - CombineTypeThree
   - CS
+  - Platform
   layers:
   - Default
   - TransparentFX
