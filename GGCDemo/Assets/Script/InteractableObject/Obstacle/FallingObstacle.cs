@@ -34,4 +34,9 @@ public class FallingObstacle : MonoBehaviour
 
         Destroy(gameObject, .2f);
     }
+
+    
+
+
+
 }

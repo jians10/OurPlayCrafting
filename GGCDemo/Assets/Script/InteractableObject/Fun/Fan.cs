@@ -13,9 +13,13 @@ public class Fan : MonoBehaviour
     public Vector2 DetectCenter;
     public Vector2 PushCenter;
     public Vector2 detectOffset;
+    public GameObject particleeffect;
+    public GameObject lightindicator;
     public SpriteRenderer sp;
     private Color mycolor;
     public float alpha;
+
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +33,30 @@ public class Fan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       SuckDetect();
-       PushDetect();
+        if (active)
+        {
+            SuckDetect();
+            PushDetect();
+        }
     }
+
+    public void activate() {
+        active = true;
+        Debug.Log("I am an activated fun");
+        particleeffect.SetActive(true);
+        lightindicator.SetActive(true);
+    
+    }
+
+    public void deactivate() {
+        active = false;
+        particleeffect.SetActive(false);
+        //particleeffect.GetComponent<ParticleSystem>().particle
+        lightindicator.SetActive(false);
+    }
+
+
+
 
     void SuckDetect()
     {
