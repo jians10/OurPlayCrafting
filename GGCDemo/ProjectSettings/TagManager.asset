@@ -9,6 +9,7 @@ TagManager:
   - CombineTypeThree
   - CS
   - Platform
+  - Enemy
   layers:
   - Default
   - TransparentFX
