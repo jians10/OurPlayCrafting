@@ -230,10 +230,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144939871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 9, z: 0}
+  m_LocalPosition: {x: 10, y: 9.22, z: 0}
   m_LocalScale: {x: 1.7263519, y: 1.5354668, z: 1}
   m_Children:
-  - {fileID: 929811883}
   - {fileID: 1279298033}
   - {fileID: 1861706262}
   - {fileID: 1550517895}
@@ -1324,7 +1323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ableToOpen: 0
 --- !u!212 &903212465
-
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1387,7 +1385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 3.4464, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &903212467
 BoxCollider2D:
@@ -1415,7 +1413,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
-
 --- !u!1 &964164976
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2063,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.477, z: 1}
   m_Children: []
   m_Father: {fileID: 144939873}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1279298034
 SpriteRenderer:
@@ -2265,7 +2262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 144939873}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &1550517896
 ParticleSystemRenderer:
@@ -7558,7 +7555,7 @@ Transform:
   m_LocalScale: {x: 1, y: 7.8965774, z: 1}
   m_Children: []
   m_Father: {fileID: 144939873}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1906301358
 GameObject:
