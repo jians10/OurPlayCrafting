@@ -10,6 +10,7 @@ public class EnemyAIGround : MonoBehaviour
     private bool movingRight = true;
     public Transform groundDetection;
     private float damageAmount=11;
+    public LayerMask ground;
     void Start()
     {
         
@@ -19,7 +20,7 @@ public class EnemyAIGround : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
-        RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+        RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance,ground);
         if (groundinfo.collider == false) {
             if (movingRight) {
                 transform.eulerAngles = new Vector3(0, 180, 0);
@@ -45,4 +46,9 @@ public class EnemyAIGround : MonoBehaviour
         }//
 
     }
+
+
+
+
+
 }

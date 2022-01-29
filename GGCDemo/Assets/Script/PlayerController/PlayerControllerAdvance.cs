@@ -41,17 +41,14 @@ public class PlayerControllerAdvance : MonoBehaviour
     [Header("ParticleSystem")]
     public ParticleSystem dust;
 
-    [Header("background Interact")]
-    public LayerMask player;
-    public LayerMask playerinMask;
-    public bool inMask;
-    public SpriteRenderer sp;
-    private Color mycolor;
+    private LayerController LC;
+
+    
     void Start()
     {
         extraJumps = extraJumpVal;
         rb = GetComponent<Rigidbody2D>();
-        mycolor = sp.color;
+        LC = GetComponent<LayerController>();
     }
 
 
@@ -62,7 +59,7 @@ public class PlayerControllerAdvance : MonoBehaviour
         RaycastHit2D hitRight;
         RaycastHit2D hitLeft;
         //onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
-        if (inMask)
+        if (LC.inMask)
         {
             hitLeft = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer | hidengroundLayer);
             hitRight = Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer | hidengroundLayer);
@@ -228,41 +225,8 @@ public class PlayerControllerAdvance : MonoBehaviour
 
     }
 
-    public void getInMask() {
-
-        if (DetectCollision())
-        {
-            gameObject.layer = LayerMask.NameToLayer("playerInMask");
-            inMask = true;
-            MaskColor();
-        }
     
-    }
-    public void getOutMask() {
-        gameObject.layer = LayerMask.NameToLayer("player");
-        inMask = false;
-        NormalColor();
-    }
-
-    private bool DetectCollision() {
-        Collider2D[] list = Physics2D.OverlapBoxAll(transform.position, new Vector3(transform.localScale.x-0.1f, transform.localScale.y-0.1f, transform.localScale.z-0.1f), 0);
-        foreach (Collider2D c in list)
-        {
-            if (c.transform.gameObject.layer==LayerMask.NameToLayer("hiddenground"))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-    private void MaskColor()
-    {
-        Debug.Log("called");
-        sp.color = new Color32(150, 150, 150, 255);
-    }
-    private void NormalColor() {
-
-        sp.color = mycolor;
-    }
+   
+   
 
 }

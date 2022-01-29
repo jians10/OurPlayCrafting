@@ -20,8 +20,6 @@ public class Fan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //extraJumps = extraJumpVal;
-        //rb = GetComponent<Rigidbody2D>();
         mycolor = sp.color;
         sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, alpha);
         DetectCenter = new Vector2(transform.position.x + detectOffset.x, transform.position.y + detectOffset.y - DetectSize.y/2);
@@ -32,7 +30,7 @@ public class Fan : MonoBehaviour
     void Update()
     {
        SuckDetect();
-        PushDetect();
+       PushDetect();
     }
 
     void SuckDetect()
@@ -40,7 +38,7 @@ public class Fan : MonoBehaviour
         Collider2D[] AttackTarget = Physics2D.OverlapBoxAll(DetectCenter, DetectSize, 0, TargetLayer);
         if (AttackTarget.Length > 0)
         {
-            Debug.Log("something to rise");
+           // Debug.Log("something to rise");
             foreach (Collider2D target in AttackTarget)
             {
                 Vector2 direction = (transform.position - target.transform.position).normalized;
@@ -57,7 +55,7 @@ public class Fan : MonoBehaviour
         Collider2D[] AttackTarget = Physics2D.OverlapBoxAll(PushCenter, PushSize, 0, TargetLayer);
         if (AttackTarget.Length > 0)
         {
-            Debug.Log("something to rise");
+           // Debug.Log("something to rise");
             foreach (Collider2D target in AttackTarget)
             {
                 Vector2 direction = (transform.position - target.transform.position).normalized;
@@ -65,7 +63,7 @@ public class Fan : MonoBehaviour
                 if (rb)
                 {
                     //target.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * pushforce, ForceMode2D.Impulse);
-                    Debug.Log("stop in there");
+                   // Debug.Log("stop in there");
                     rb.velocity =Vector2.Lerp(rb.velocity, new Vector2(rb.velocity.x,0), Time.deltaTime*5);
                     //target.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * pushforce, ForceMode2D.Impulse);
                 }

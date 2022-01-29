@@ -105,8 +105,8 @@ public class MyMaskController: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControllerAdvance>()) {
-            collision.gameObject.GetComponent<PlayerControllerAdvance>().getInMask();
+        if (collision.gameObject.GetComponent<LayerController>()) {
+            collision.gameObject.GetComponent<LayerController>().getInMask();
             //Debug.Log("Get a Player");
 
         }
@@ -114,8 +114,8 @@ public class MyMaskController: MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControllerAdvance>()) {
-            collision.gameObject.GetComponent<PlayerControllerAdvance>().getOutMask();
+        if (collision.gameObject.GetComponent<LayerController>()) {
+            collision.gameObject.GetComponent<LayerController>().getOutMask();
             //Debug.Log("Player get out");
         }
     }
