@@ -110,11 +110,17 @@ public class MyMaskController: MonoBehaviour
 
         }
         SecondLayerObject so = collision.gameObject.GetComponent<SecondLayerObject>();
-        if (so)
+        if(so!=null)
         {
-            //Debug.Log("gonna be activated");
-            so.active();
+            if (so.isSecondGround)
+            {
+                //Debug.Log("gonna be activated");
+                if (so.isSecondGround)
+                {
+                    so.active();
+                }
 
+            }
         }
         
     }
@@ -128,8 +134,11 @@ public class MyMaskController: MonoBehaviour
         SecondLayerObject so = collision.gameObject.GetComponent<SecondLayerObject>();
         if (so)
         {
-            //Debug.Log("gonna be activated");
-            so.deactive();
+            if (so.isSecondGround)
+            {
+                //Debug.Log("gonna be activated");
+                so.deactive();
+            }
 
         }
     }

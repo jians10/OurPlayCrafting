@@ -10,28 +10,38 @@ public class EnemyAIGround : MonoBehaviour
     private bool movingRight = true;
     public Transform groundDetection;
     private float damageAmount=11;
+    private Rigidbody2D rb;
     public LayerMask ground;
+    public Transform groundDetect;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
-        RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance,ground);
-        if (groundinfo.collider == false) {
-            if (movingRight) {
-                transform.eulerAngles = new Vector3(0, 180, 0);
-                movingRight = false;
-            }
-            else
+        //if()
+        RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance, ground);
+        RaycastHit2D grounddetect = Physics2D.Raycast(groundDetect.position, Vector2.down, 0.2f, ground);
+
+        //if (grounddetect)
+        //{
+            if (groundinfo.collider == false)
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
+                if (movingRight)
+                {
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+                    movingRight = false;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    movingRight = true;
+                }
             }
-        }
+        //}
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -45,6 +55,16 @@ public class EnemyAIGround : MonoBehaviour
             //player.Damage(damageAmount);
         }//
 
+    }
+    void Flip()
+    {
+        movingRight = !movingRight;
+        //transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
+        //facingRight = !facingRight;
+        Vector3 Scalar = transform.localScale;
+        Scalar.x *= -1;
+        transform.localScale = Scalar;
+        //CreateDust();
     }
 
 
