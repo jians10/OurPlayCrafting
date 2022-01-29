@@ -7,12 +7,13 @@ public class EnemyAIGround : MonoBehaviour
     // Start is called before the first frame update\
     public float speed;
     public float distance;
-    private bool movingRight = true;
+    public bool movingRight = true;
     public Transform groundDetection;
     private float damageAmount=11;
     private Rigidbody2D rb;
     public LayerMask ground;
     public Transform groundDetect;
+    public Transform posLeft, posRight;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,10 +25,21 @@ public class EnemyAIGround : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
         //if()
         RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance, ground);
-        RaycastHit2D grounddetect = Physics2D.Raycast(groundDetect.position, Vector2.down, 0.2f, ground);
+        RaycastHit2D grounddetect = Physics2D.Raycast(groundDetect.position, Vector2.down, 2f, ground);
+        
+        if (Vector2.Distance(transform.position, posLeft.position)<1) {
+            movingRight=true;
+            transform.eulerAngles = new Vector3(0, 0, 0);
 
-        //if (grounddetect)
-        //{
+        }
+        if (Vector2.Distance(transform.position,posRight.position)<1)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            movingRight =false;
+        }
+
+        if (grounddetect)
+        {
             if (groundinfo.collider == false)
             {
                 if (movingRight)
@@ -41,8 +53,10 @@ public class EnemyAIGround : MonoBehaviour
                     movingRight = true;
                 }
             }
-        //}
+        }
     }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
