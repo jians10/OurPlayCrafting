@@ -19,12 +19,12 @@ public class SecondLayerFan : SecondLayerObject
     }
     override public void active()
     {
-        //Debug.Log("activated fan");
+        Debug.Log("activated fan");
         myfan.activate();
     }
     override public void deactive()
     {
-        //Debug.Log("deactivated fan");
+        Debug.Log("deactivated fan");
         //base.deactive();
         myfan.deactivate();
     }

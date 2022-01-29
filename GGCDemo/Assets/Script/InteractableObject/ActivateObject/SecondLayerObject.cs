@@ -5,16 +5,10 @@ using UnityEngine;
 public class SecondLayerObject : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool isSecondGround;
     virtual public void Start()
     {
-        //if (gameObject.layer == LayerMask.NameToLayer("hidden")||gameObject.layer== LayerMask.NameToLayer("hiddenground")) {
-        if (isSecondGround)
-        {
+        if (gameObject.layer == LayerMask.NameToLayer("hidden")||gameObject.layer== LayerMask.NameToLayer("hiddenground")) {
             deactive();
-        }
-        else {
-            active();
         }
     }
 
