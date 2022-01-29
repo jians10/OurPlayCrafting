@@ -6,18 +6,19 @@ public class FallingObstacle : MonoBehaviour
 {
     Rigidbody2D rb;
     public int damageAmount = 1;
-    private PlayerHealth player;
+    //
+    //private PlayerHealth player;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")||collision.CompareTag("Enemy"))
         {
             rb.isKinematic = false;
         }
@@ -25,11 +26,17 @@ public class FallingObstacle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
+        if (collision.gameObject.CompareTag("Player")||collision.gameObject.CompareTag("Enemy"))
         {
             player.Damage(damageAmount);
         }
 
         Destroy(gameObject, .2f);
     }
+
+    
+
+
+
 }

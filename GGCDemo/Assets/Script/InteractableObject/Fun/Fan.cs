@@ -5,42 +5,90 @@ using UnityEngine;
 public class Fan : MonoBehaviour
 {
     public LayerMask TargetLayer;
+    public LayerMask BlockLayer;
     public float suckforce;
-    public float pushforce;
-    public Vector2 DetectSize;
-    public Vector2 PushSize;
-    public Vector2 pushOffset;
-    public Vector2 DetectCenter;
-    public Vector2 PushCenter;
-    public Vector2 detectOffset;
+    protected Vector2 AffectSize;
+    protected Vector2 RelifSize;
+    protected float currdistance;
+    public float affectprop;
+    public float relifprop;
+    public float width;
+    public float AffectDistance=5;
+    public Transform detectpos;
+
+    public float relifOffset;
+    protected Vector2 AffectCenter;
+    protected Vector2 RelifCenter;
+    public float affectOffset;
+    public GameObject particleeffect;
+    public GameObject lightindicator;
     public SpriteRenderer sp;
-    private Color mycolor;
+    protected Color mycolor;
     public float alpha;
+    public bool showGizmo;
+    //public bool suck;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
-        //extraJumps = extraJumpVal;
-        //rb = GetComponent<Rigidbody2D>();
         mycolor = sp.color;
         sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, alpha);
-        DetectCenter = new Vector2(transform.position.x + detectOffset.x, transform.position.y + detectOffset.y - DetectSize.y/2);
-        PushCenter = new Vector2(transform.position.x + pushOffset.x, transform.position.y + pushOffset.y - PushSize.y / 2);
     }
 
     // Update is called once per frame
-    void Update()
+    virtual public void Update()
     {
-       SuckDetect();
-        PushDetect();
+        RaycastHit2D lengthcheck = Physics2D.Raycast(detectpos.position, -detectpos.up, AffectDistance, BlockLayer);
+
+        if (lengthcheck)
+        {
+
+            currdistance = Mathf.Abs(lengthcheck.transform.position.y - detectpos.position.y);
+        }
+        else {
+
+            currdistance = AffectDistance;
+        }
+        float AffectSizey = (currdistance - affectOffset - relifOffset) / (affectprop + relifprop) * affectprop;
+        float RelifSizey = (currdistance - affectOffset - relifOffset) / (affectprop + relifprop) * relifprop;
+
+        AffectSize = new Vector2(width, AffectSizey);
+        RelifSize = new Vector2(width, RelifSizey);
+
+
+        RelifCenter = new Vector2(transform.position.x, detectpos.position.y - relifOffset - RelifSize.y / 2);
+        AffectCenter = new Vector2(transform.position.x, RelifCenter.y - RelifSize.y / 2 - affectOffset - AffectSize.y / 2);
+
+        if (active)
+        {
+            SuckDetect();
+            PushDetect();
+        }
     }
 
-    void SuckDetect()
+    public void activate() {
+        active = true;
+        Debug.Log("I am an activated fun");
+        particleeffect.SetActive(true);
+        lightindicator.SetActive(true);
+    
+    }
+
+    public void deactivate() {
+        active = false;
+        particleeffect.SetActive(false);
+        lightindicator.SetActive(false);
+    }
+
+    
+
+
+    virtual public void SuckDetect()
     {
-        Collider2D[] AttackTarget = Physics2D.OverlapBoxAll(DetectCenter, DetectSize, 0, TargetLayer);
+        Collider2D[] AttackTarget = Physics2D.OverlapBoxAll(AffectCenter,AffectSize, 0, TargetLayer);
         if (AttackTarget.Length > 0)
         {
-            Debug.Log("something to rise");
             foreach (Collider2D target in AttackTarget)
             {
                 Vector2 direction = (transform.position - target.transform.position).normalized;
@@ -52,34 +100,32 @@ public class Fan : MonoBehaviour
             }
         }
     }
-    void PushDetect() {
+    virtual public  void PushDetect() {
 
-        Collider2D[] AttackTarget = Physics2D.OverlapBoxAll(PushCenter, PushSize, 0, TargetLayer);
+        Collider2D[] AttackTarget = Physics2D.OverlapBoxAll(RelifCenter, RelifSize, 0, TargetLayer);
         if (AttackTarget.Length > 0)
         {
-            Debug.Log("something to rise");
+           // Debug.Log("something to rise");
             foreach (Collider2D target in AttackTarget)
             {
                 Vector2 direction = (transform.position - target.transform.position).normalized;
                 Rigidbody2D rb = target.gameObject.GetComponent<Rigidbody2D>();
                 if (rb)
                 {
-                    //target.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * pushforce, ForceMode2D.Impulse);
-                    Debug.Log("stop in there");
                     rb.velocity =Vector2.Lerp(rb.velocity, new Vector2(rb.velocity.x,0), Time.deltaTime*5);
-                    //target.gameObject.GetComponent<Rigidbody2D>().AddForce(-direction * pushforce, ForceMode2D.Impulse);
                 }
             }
         }
     }
 
-
-
     private void OnDrawGizmos()
     {
-        //Gizmos.color = Color.blue;
-        //Gizmos.DrawCube(DetectCenter, DetectSize);
-        //Gizmos.DrawCube(PushCenter, PushSize);
+        if (showGizmo)
+        {
+            //Gizmos.color = Color.blue;
+            Gizmos.DrawCube(AffectCenter, AffectSize);
+            Gizmos.DrawCube(RelifCenter, RelifSize);
+        }
     }
 
 }

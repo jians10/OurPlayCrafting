@@ -94,8 +94,6 @@ public class MyMaskController: MonoBehaviour
                 deactive();
             }
         }
-        //Debug.Log("I am here");
-        //Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 mousePositionOnScreen = Input.mousePosition;
         //mousePositionOnScreen.z = screenPosition.z;
         Vector2 mousePositionInWorld = Camera.main.ScreenToWorldPoint(mousePositionOnScreen);
@@ -105,18 +103,43 @@ public class MyMaskController: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControllerAdvance>()) {
-            collision.gameObject.GetComponent<PlayerControllerAdvance>().getInMask();
+        if (collision.gameObject.GetComponent<LayerController>())
+        {
+            collision.gameObject.GetComponent<LayerController>().getInMask();
             //Debug.Log("Get a Player");
 
+        }
+        SecondLayerObject so = collision.gameObject.GetComponent<SecondLayerObject>();
+        if(so!=null)
+        {
+            if (so.isSecondGround)
+            {
+                //Debug.Log("gonna be activated");
+                if (so.isSecondGround)
+                {
+                    so.active();
+                }
+
+            }
         }
         
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControllerAdvance>()) {
-            collision.gameObject.GetComponent<PlayerControllerAdvance>().getOutMask();
+        if (collision.gameObject.GetComponent<LayerController>())
+        {
+            collision.gameObject.GetComponent<LayerController>().getOutMask();
             //Debug.Log("Player get out");
+        }
+        SecondLayerObject so = collision.gameObject.GetComponent<SecondLayerObject>();
+        if (so)
+        {
+            if (so.isSecondGround)
+            {
+                //Debug.Log("gonna be activated");
+                so.deactive();
+            }
+
         }
     }
 }

@@ -7,10 +7,10 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static int playerHP = 5;
+    public int playerHP = 5;
     public float invincibleTime = 2f;
     private float invincibleTimer = 0;
-    public TextMeshProUGUI playerHPText;
+    //public TextMeshProUGUI playerHPText;
     public static bool isDead;
     private Rigidbody2D rb;
     public int status = 0;
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         //update UI
-        playerHPText.text = playerHP.ToString();
+        //playerHPText.text = playerHP.ToString();
 
         if (status==2)
         {
@@ -50,17 +50,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void CheckDeath() {
 
-        if (playerHP <= 0)
-        {
-            //isDead = true;
-            transform.position = CheckpointSystem.instance.lastCheckPointPos;
-            playerHP = 10;
+        if (playerHP <= 0) {
+            if (gameObject.tag == "Player")
+            {
+                //isDead = true;
+                transform.position = CheckpointSystem.instance.lastCheckPointPos;
+                playerHP = 10;
+            }
+            else {
+
+                Destroy(gameObject);
+            }
         }
+        
 
     }
-
-
-
 
 
     public  IEnumerator Knockback(float knockDur, float knockbackPwr, Vector2 knockbackDir, bool withdamage, float damage)

@@ -5,19 +5,21 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     public int damageAmount = 100;
-    private PlayerHealth player;
+    //private PlayerHealth player;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")||collision.CompareTag("Enemy"))
         {
+            PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
+            Debug.Log("Some one hit spike");
             if (player.status != 0) {
                 return;
             }
