@@ -8,7 +8,7 @@ public class Key_Obj : MonoBehaviour
     public GameObject targetPoint;
     void Start()
     {
-        targetPoint = GameObject.Find("TestDoor");
+        //targetPoint = GameObject.Find("TestDoor");
     }
 
     // Update is called once per frame
