@@ -1045,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9093296192852604318, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: m_MaskInteraction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9093296192852604319, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: m_LocalScale.x
@@ -1089,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9093296193184651585, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: m_MaskInteraction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9093296193184651586, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: m_Layer
@@ -1108,8 +1108,28 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9093296193263943244, guid: c559339994faa68428963a3b1a574591, type: 3}
+      propertyPath: suckforce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093296193263943244, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: AffectDistance
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093296193263943246, guid: c559339994faa68428963a3b1a574591, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5716152
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093296193263943246, guid: c559339994faa68428963a3b1a574591, type: 3}
+      propertyPath: m_Size.y
+      value: 2.9907134
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093296193263943246, guid: c559339994faa68428963a3b1a574591, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.7858076
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093296193263943246, guid: c559339994faa68428963a3b1a574591, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.9953567
       objectReference: {fileID: 0}
     - target: {fileID: 9093296193263943247, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: isSecondGround
@@ -1193,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9093296194341175657, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: m_MaskInteraction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9093296194341175658, guid: c559339994faa68428963a3b1a574591, type: 3}
       propertyPath: m_LocalScale.x
@@ -12201,8 +12221,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161736541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.522, y: 28.4923, z: 10}
-  m_LocalScale: {x: 2.8122783, y: 4.5158377, z: 1}
+  m_LocalPosition: {x: -54.3247, y: 28.4923, z: 10}
+  m_LocalScale: {x: 2.9618914, y: 4.5158377, z: 1}
   m_Children: []
   m_Father: {fileID: 7507597834580363032}
   m_RootOrder: 73
