@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c587dda7a8b74ce59b146818fc74a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: Whole_Map L3
+  NextSceneName: L3
 --- !u!1 &27577058
 GameObject:
   m_ObjectHideFlags: 0
@@ -7938,7 +7938,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12300,7 +12300,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -14886,7 +14886,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: 0.70892143, w: 0.7052875}
   m_LocalPosition: {x: -218.4543, y: -14.2262, z: 8.429634}
   m_LocalScale: {x: 5.169354, y: 2.0600667, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1178525121}
   m_Father: {fileID: 1138612807}
   m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.294}
@@ -18415,7 +18416,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 19.435503
+  orthographic size: 7.1596856
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -18439,7 +18440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774463603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.6, y: -8.9, z: -10}
+  m_LocalPosition: {x: -27.1, y: -15.1, z: -10}
   m_LocalScale: {x: 1, y: 0.5375, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18457,8 +18458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc77ee033899b7c4c8ee0014e6e81ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPos: {x: -100000000, y: -10000}
-  maxPos: {x: 10000, y: 10000}
+  minPos: {x: -147.3, y: -43.9}
+  maxPos: {x: 19.57, y: 7.9}
   cam: {fileID: 774463605}
   target: {fileID: 376791686}
   damping: 1
@@ -20497,7 +20498,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -29900,6 +29901,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1178525120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178525121}
+  - component: {fileID: 1178525122}
+  m_Layer: 0
+  m_Name: NonEnter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1178525121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178525120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.26, y: -33.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 577779620}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1178525122
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178525120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.5675259, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.579166, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1180378390
 GameObject:
   m_ObjectHideFlags: 0
@@ -32170,8 +32228,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264008804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.3362, y: 3.4355, z: 8.429634}
-  m_LocalScale: {x: 17.973518, y: 9.150602, z: 1}
+  m_LocalPosition: {x: 6.3362, y: 9.797, z: 8.429634}
+  m_LocalScale: {x: 17.973518, y: 16.138002, z: 1}
   m_Children: []
   m_Father: {fileID: 1138612807}
   m_RootOrder: 4
@@ -53287,7 +53345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865029763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.2, y: 4.68, z: 8.429634}
+  m_LocalPosition: {x: -12.2, y: 9.86, z: 4.13}
   m_LocalScale: {x: 3.3250184, y: 1.6906732, z: 1}
   m_Children: []
   m_Father: {fileID: 1138612807}
@@ -53519,7 +53577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865200347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.68, y: 4.64, z: 8.429634}
+  m_LocalPosition: {x: 9.88, y: 10.31, z: 8.429634}
   m_LocalScale: {x: 3.3250184, y: 1.6906732, z: 1}
   m_Children: []
   m_Father: {fileID: 1138612807}
@@ -55014,8 +55072,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930730003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.4394, y: 3.4216, z: 8.429634}
-  m_LocalScale: {x: 17.84244, y: 9.292782, z: 1}
+  m_LocalPosition: {x: -15.4394, y: 9.508, z: 8.429634}
+  m_LocalScale: {x: 17.84244, y: 16.03098, z: 1}
   m_Children: []
   m_Father: {fileID: 1138612807}
   m_RootOrder: 3
@@ -59230,11 +59288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7322374370314222644, guid: 6324800e0173cdb4d9702cacbb75af88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -120.7
+      value: -130.5
       objectReference: {fileID: 0}
     - target: {fileID: 7322374370314222644, guid: 6324800e0173cdb4d9702cacbb75af88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -39.1
+      value: -38.2
       objectReference: {fileID: 0}
     - target: {fileID: 7599890432805494998, guid: 6324800e0173cdb4d9702cacbb75af88, type: 3}
       propertyPath: m_Color.b
