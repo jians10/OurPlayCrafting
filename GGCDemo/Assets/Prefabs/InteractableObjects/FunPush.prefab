@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 4344739372320180021}
   - component: {fileID: 4344739372320180028}
   - component: {fileID: 4344739372320180031}
-  - component: {fileID: 4344739372320180030}
-  - component: {fileID: 4344739372320180025}
+  - component: {fileID: 3642483046470739460}
+  - component: {fileID: 7835571718059092329}
   m_Layer: 6
   m_Name: FunPush
   m_TagString: Untagged
@@ -168,7 +168,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4344739372320180030
+--- !u!114 &3642483046470739460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344739372320180024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0608dea32867489b80baa6a2eb5e211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  BlockLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  suckforceX: 0.01
+  suckforceY: 6
+  VelocityReduceIndex: 0
+  xVelocityReduce: 1
+  affectprop: 4
+  relifprop: 1
+  affectwidth: 2.67
+  relifwidth: 2.02
+  FanDistance: 30.3
+  detectpos: {fileID: 7863455656759433812}
+  relifOffset: 0
+  affectOffset: 0
+  particleeffect: {fileID: 4344739373233962646}
+  lightindicator: {fileID: 4344739372185477507}
+  sp: {fileID: 4344739372185477506}
+  alpha: 0
+  showGizmo: 1
+  active: 0
+  pushforce: 1
+--- !u!114 &7835571718059092329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,40 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43461ee2ff934c6459eb4cfbdd67b8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSecondGround: 0
---- !u!114 &4344739372320180025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4344739372320180024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1d80fdee002be4bb3ac50dc79d913b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  BlockLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  suckforce: 0
-  affectprop: 4
-  relifprop: 1
-  width: 1.5
-  AffectDistance: 5
-  detectpos: {fileID: 7863455656759433812}
-  relifOffset: 0.5
-  affectOffset: 0.1
-  particleeffect: {fileID: 4344739373233962646}
-  lightindicator: {fileID: 4344739372185477507}
-  sp: {fileID: 4344739372185477506}
-  alpha: 0.1
-  showGizmo: 1
-  active: 1
-  pushforce: 0.3
+  isSecondGround: 1
 --- !u!1 &4344739373233962646
 GameObject:
   m_ObjectHideFlags: 0

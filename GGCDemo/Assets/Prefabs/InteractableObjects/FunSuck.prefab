@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 9093296193263943244}
   - component: {fileID: 9093296193263943245}
   - component: {fileID: 9093296193263943246}
-  - component: {fileID: 9093296193263943247}
+  - component: {fileID: -5788998982616355802}
   m_Layer: 6
   m_Name: FunSuck
   m_TagString: Untagged
@@ -221,11 +221,15 @@ MonoBehaviour:
   BlockLayer:
     serializedVersion: 2
     m_Bits: 64
-  suckforce: 0.3
-  affectprop: 4
+  suckforceX: 0.01
+  suckforceY: 0.5
+  VelocityReduceIndex: 0
+  xVelocityReduce: 1
+  affectprop: 1
   relifprop: 1
-  width: 1.5
-  AffectDistance: 10
+  affectwidth: 1.97
+  relifwidth: 1.86
+  FanDistance: 27.5
   detectpos: {fileID: 9093296193550528988}
   relifOffset: 0.2
   affectOffset: 0.2
@@ -282,7 +286,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9093296193263943247
+--- !u!114 &-5788998982616355802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
