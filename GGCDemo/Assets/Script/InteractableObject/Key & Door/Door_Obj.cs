@@ -14,17 +14,16 @@ public class Door_Obj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+   
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("hit");
         if (ableToOpen == true)
         {
-            Debug.Log("hit");
-
             Destroy(this.gameObject);
 
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        
     }
 }
