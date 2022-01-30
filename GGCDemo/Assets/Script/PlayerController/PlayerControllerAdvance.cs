@@ -58,7 +58,7 @@ public class PlayerControllerAdvance : MonoBehaviour
         bool wasOnGround = onGround;
         RaycastHit2D hitRight;
         RaycastHit2D hitLeft;
-        //onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+
         if (LC.inMask)
         {
             hitLeft = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer | hidengroundLayer);
@@ -69,23 +69,6 @@ public class PlayerControllerAdvance : MonoBehaviour
             hitLeft = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer);
             hitRight = Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
         }
-        //if (hitLeft)
-        //{
-        //    if (hitLeft.transform.gameObject.GetComponent<PlatformMovement>())
-        //    {
-        //        currPlatform = hitLeft.transform.gameObject.GetComponent<PlatformMovement>();
-        //    }
-        //}
-        //else if (hitRight)
-        //{
-        //    if (hitRight.transform.gameObject.GetComponent<PlatformMovement>())
-        //    {
-        //        currPlatform = hitRight.transform.gameObject.GetComponent<PlatformMovement>();
-        //    }
-        //}
-        //else { 
-        //    currPlatform==null
-        //}
 
 
         onGround = hitLeft || hitRight;

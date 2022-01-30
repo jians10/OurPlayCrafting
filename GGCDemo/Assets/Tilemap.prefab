@@ -563,6 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6798819917635862864}
   - component: {fileID: 4272734144360459313}
+  - component: {fileID: 1024806893367152186}
   m_Layer: 0
   m_Name: Isometric Diamond (1)
   m_TagString: Untagged
@@ -635,6 +636,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1024806893367152186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000820850722925033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ff9ec5770e4d01858230890386b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 100
 --- !u!1 &2238985481950168749
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2433688925473752861}
   - component: {fileID: 7685192922559407243}
+  - component: {fileID: 3526832557143557838}
   m_Layer: 0
   m_Name: Isometric Diamond (4)
   m_TagString: Untagged
@@ -1044,6 +1059,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3526832557143557838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645536280693463715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ff9ec5770e4d01858230890386b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 100
 --- !u!1 &2713597601804036220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,6 +3221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5774450114449257809}
   - component: {fileID: 5372677525898654348}
+  - component: {fileID: 8793606744196341595}
   m_Layer: 0
   m_Name: Isometric Diamond (3)
   m_TagString: Untagged
@@ -3265,6 +3294,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8793606744196341595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614044246417989070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ff9ec5770e4d01858230890386b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 100
 --- !u!1 &8859886417680503516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8841705647842815280}
   - component: {fileID: 2524606091670647826}
+  - component: {fileID: 4402545539589775297}
   m_Layer: 0
   m_Name: Isometric Diamond (2)
   m_TagString: Untagged
@@ -3347,6 +3390,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4402545539589775297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8859886417680503516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ff9ec5770e4d01858230890386b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 100
 --- !u!1 &8993027740053103438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +3522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6362148216501349470}
   - component: {fileID: 3191668159338746153}
+  - component: {fileID: 6854219843824944747}
   m_Layer: 0
   m_Name: Isometric Diamond
   m_TagString: Untagged
@@ -3538,3 +3595,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6854219843824944747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9120590132360963840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ff9ec5770e4d01858230890386b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 100
